@@ -1,0 +1,47 @@
+import scrapy
+
+class MultipleUrlSpider(scrapy.Spider):
+    name = "testi"
+    start_urls = [
+        "https://www.editions-harmattan.fr/catalogue/livre/chronique-dun-regime-dictatorial-aux-comores/79579",
+        # add more URLs here
+    ]
+
+    def parse(self, response):    
+        # Extracting full description
+        description_parts = response.css('div.full-description *::text').getall()
+        full_description = ' '.join(description_parts).strip()
+        full_description = ' '.join(full_description.split())
+        self.log(f"Extracted Description: {full_description}")
+        
+        # Extracting image URLs
+        image_relative_urls = response.css('div.slick-list.draggable img.img-fluid::attr(src)').getall()
+        
+        # Base URL for the images
+        base_url = 'https://www.editions-harmattan.fr'
+        
+        # Create the full image URLs
+        image_urls = [base_url + img_url for img_url in image_relative_urls]
+
+        # Print or yield the extracted image URLs
+        for img_url in image_urls:
+            self.log(f"Extracted Image URL: {img_url}")
+        
+        # Yield the data
+        yield {
+            'Link': response.css('link[rel="canonical"]::attr(href)').get(),
+            'Title': response.css('h1.title-produit::text').get().strip(),
+            'Sub-title': response.css('h2.sub-title-produit::text').get(),
+            'FullDescription': full_description,
+            'Description': response.css('div.description-produit::text').get().strip(),
+            'Author': response.css('div.item-attribut ul li a::text').get(),
+            'EAN13': response.css("span.label-attribut:contains('EAN13') + span::text").get(),
+            'Price': response.css('div.price::text').get().replace('\n\t\t\t\t\t\t\t€', ''),
+            'NumberOfPages': response.css('div.item-attribut > span:contains("Nb de pages") + span::text').get(),
+            'Language': response.css('div.item-attribut > span:contains("Langue(s)") + span::text').get(),
+            'DateOfPublication': response.css('div.item-attribut > span:contains("Date de publication") + span::text').get(),
+            'Country': response.css('div.item-attribut:contains("Zone(s) Geographique(s)") span a:last-child::text').get(),
+            'Subject': response.css('div.item-attribut:contains("Thématique(s)") span a:last-child::text').get(),
+            'Dirigé par': response.xpath("//div[@class='item-attribut']/span[contains(text(), 'Dirigé par')]/following-sibling::ul/li/a/text()").getall(),
+            'ImageURLs': image_urls,  # Adding extracted image URLs to the output
+        }
