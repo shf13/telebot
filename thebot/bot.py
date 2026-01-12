@@ -41,12 +41,14 @@ I18N = {
         "choose_lang": "Choose language:",
         "help": (
             "How to use this bot:\n\n"
-            "• /Now — show today's prayer times\n"
-            "• /SetTime HH:MM — set daily delivery time (24h, MSK)\n"
-            "   Example: (/SetTime 08:15)\n"
-            "• /Time — show your settings (MSK)\n"
-            "• /Stop — disable daily messages\n"
-            "• /Language — change language\n\n"
+            "• /start - Initializes the bot and displays the current day's prayer times.\n"
+            "• /help - Provides instructions on how to use the bot.\n"
+            "• /now - Shows today's prayer times with a visual highlight indicating the next prayer and its time.\n"
+            "• /settime - Allows you to set the time for the daily message; use the format /settime HH:MM \n"
+            " (e.g., /settime 04:04).\n"
+            "• /time - Displays your current settings for the daily message.\n"
+            "• /stop - Disables the daily message notifications.\n"
+            "• /language — change the language\n\n"
             "Tip: You can also use the buttons instead of typing commands."
         ),
         "btn_now": "Now",
@@ -80,14 +82,16 @@ I18N = {
         "menu_prompt": "Выберите действие:",
         "choose_lang": "Выберите язык:",
         "help": (
-            "Как пользоваться ботом:\n\n"
-            "• /Now — показать время намаза на сегодня\n"
-            "• /SetTime HH:MM — установить ежедневное время отправки (24ч, MSK)\n"
-            "   Пример: /SetTime 08:15\n"
-            "• /Time — показать настройки (MSK)\n"
-            "• /Stop — отключить ежедневные сообщения\n"
-            "• /Language — сменить язык\n\n"
-            "Подсказка: можно пользоваться кнопками."
+            "Как пользоваться этим ботом:\n\n"
+            "• /start - Инициализирует бота и отображает время молитвы на текущий день.\n"
+            "• /help - Предоставляет инструкции по использованию бота.\n"
+            "• /now - Показывает время молитвы на сегодня с визуальным выделением следующей молитвы и ее времени.\n"
+            "• /settime - Позволяет установить время для ежедневного сообщения; используйте формат /settime HH:MM \n"
+            " (например, /settime 04:04).\n"
+            "• /time - Отображает текущие настройки для ежедневного сообщения.\n"
+            "• /stop - Отключает уведомления о ежедневных сообщениях.\n"
+            "• /language — изменить язык\n\n"
+            "Совет: Вы также можете использовать кнопки вместо ввода команд."
         ),
         "btn_now": "Сейчас",
         "btn_settings": "Мои настройки",
@@ -120,14 +124,16 @@ I18N = {
         "menu_prompt": "اختر خياراً:",
         "choose_lang": "اختر اللغة:",
         "help": (
-            "طريقة استخدام البوت:\n\n"
-            "• /Now — عرض مواقيت الصلاة لليوم\n"
-            "• /SetTime HH:MM — تحديد وقت الإرسال اليومي (24 ساعة، بتوقيت موسكو MSK)\n"
-            "   مثال: /SetTime 08:15\n"
-            "• /Time — عرض إعداداتك (MSK)\n"
-            "• /Stop — إيقاف الرسائل اليومية\n"
-            "• /Language — تغيير اللغة\n\n"
-            "ملاحظة: يمكنك استخدام الأزرار بدل كتابة الأوامر."
+            "كيفية استخدام هذا البوت:\n\n"
+            "• /start - يفعّل البوت ويعرض أوقات الصلاة لليوم الحالي.\n"
+            "• /help - يقدم تعليمات حول كيفية استخدام البوت.\n"
+            "• /now - يعرض أوقات الصلاة لليوم مع إبراز مرئي للصلاة القادمة ووقت أداءها.\n"
+            "• /settime - يتيح لك ضبط وقت الرسالة اليومية؛ استخدم التنسيق /settime HH:MM \n"
+            " (مثال: /settime 04:04).\n"
+            "• /time - يعرض إعداداتك الحالية للرسالة اليومية.\n"
+            "• /stop - يعطل إشعارات الرسائل اليومية.\n"
+            "• /language — تغيير اللغة\n\n"
+            "نصيحة: يمكنك أيضًا استخدام الأزرار بدلاً من كتابة الأوامر."
         ),
         "btn_now": "الآن",
         "btn_settings": "إعداداتي",
